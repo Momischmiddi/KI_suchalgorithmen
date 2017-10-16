@@ -9,6 +9,8 @@
 
 	<modules>
 		<module>ki-ui</module>
+		<module>ki-eightpuzzle</module>
+		<module>ki-search-algorithm</module>
 	</modules>
 
 </project>
