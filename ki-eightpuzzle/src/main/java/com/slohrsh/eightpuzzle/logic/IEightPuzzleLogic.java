@@ -2,11 +2,11 @@ package com.slohrsh.eightpuzzle.logic;
 
 public interface IEightPuzzleLogic {
 
-	public int[] moveUp();
+	public int[] moveUp(int[] state);
 	
-	public int[] moveDown();
+	public int[] moveDown(int[] state);
 	
-	public int[] moveLeft();
+	public int[] moveLeft(int[] state);
 	
-	public int[] moveRight();
+	public int[] moveRight(int[] state);
 }
