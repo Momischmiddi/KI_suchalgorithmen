@@ -29,4 +29,8 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<properties>
+		<skipTests>true</skipTests>
+	</properties>
 </project>
