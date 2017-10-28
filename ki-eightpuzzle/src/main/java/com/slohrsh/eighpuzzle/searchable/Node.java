@@ -27,13 +27,14 @@ public class Node implements INode
 		return Arrays.equals(state, goal.getState());
 	}
 
-	public int getCost()
+	public Integer getCost()
 	{
 		return cost;
 	}
 
 	public void calculateCost(IHeuristic heuristic)
 	{
+		cost = heuristic.calculateCosts(state);
 	}
 
 	public int[] getState()

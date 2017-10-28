@@ -1,5 +1,6 @@
 package com.slohrsh.searchalgorithm.heuristicsearch;
 
+import java.util.Comparator;
 import java.util.List;
 
 import com.slohrsh.interfaces.IExecutable;
@@ -15,6 +16,16 @@ public class HeuristicSearch extends Searchalgorithm implements IExecutable
 
 	private ISearchable logic;
 	private IHeuristic heuristic;
+	
+	Comparator<INode> c = new Comparator<INode>() {
+
+		@Override
+		public int compare(INode o1, INode o2)
+		{
+			return o1.getCost().compareTo(o2.getCost());
+		}
+		
+	};
 	
 
 	public HeuristicSearch(ISearchable logic, IHeuristic heuristic)
@@ -58,16 +69,8 @@ public class HeuristicSearch extends Searchalgorithm implements IExecutable
 
 	private void sortInArray(INode ratedNode, List<INode> allNodes)
 	{
-		int size = allNodes.size();
-		for(int i = 0; i < size; i++)
-		{
-			if(ratedNode.getCost() < allNodes.get(i).getCost())
-			{
-				allNodes.add(i, ratedNode);
-				return;
-			}
-		}
 		allNodes.add(ratedNode);
-		
+		//More performant because if you search for an index and then shift it, it would be O(1/n) + O(n)
+		allNodes.sort(c); //-> O(n * log n)
 	}
 }

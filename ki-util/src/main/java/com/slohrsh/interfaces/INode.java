@@ -4,7 +4,7 @@ public interface INode
 {
 	public boolean isGoalReached(INode goal);
 	
-	public int getCost();
+	public Integer getCost();
 	
 	public void calculateCost(IHeuristic heuristic);
 	
