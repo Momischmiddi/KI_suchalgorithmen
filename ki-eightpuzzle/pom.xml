@@ -7,10 +7,8 @@
 		<version>1</version>
 	</parent>
 
-	<groupId>slohrsh</groupId>
 	<artifactId>ki-eighpuzzle</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ki_suchalgorithmen</name>
 
 	<dependencies>
 		<dependency>

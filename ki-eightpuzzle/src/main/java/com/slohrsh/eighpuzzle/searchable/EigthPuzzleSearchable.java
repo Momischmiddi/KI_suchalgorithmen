@@ -1,5 +1,6 @@
 package com.slohrsh.eighpuzzle.searchable;
 
+import com.slohrsh.interfaces.INode;
 import com.slohrsh.interfaces.ISearchable;
 
 import com.slohrsh.util.ArrayList;
@@ -23,14 +24,20 @@ public class EigthPuzzleSearchable implements ISearchable
 		return instance;
 	}
 
-	public List<int[]> getAllPossibleMoves(int[] actualState)
+	public List<INode> getSuccessors(INode parentNode)
 	{
-		List<int[]> allPossibleMovements = new ArrayList<int[]>();
-
-		allPossibleMovements.add(logic.moveUp(actualState));
-		allPossibleMovements.add(logic.moveDown(actualState));
-		allPossibleMovements.add(logic.moveRight(actualState));
-		allPossibleMovements.add(logic.moveLeft(actualState));
+		List<INode> allPossibleMovements = new ArrayList<INode>();
+		int[] actualState = parentNode.getState();
+		int[] tmpState;
+		
+		tmpState = logic.moveUp(actualState);
+		allPossibleMovements.add(tmpState != null ? new Node(tmpState, parentNode) : null);
+		tmpState = logic.moveDown(actualState);
+		allPossibleMovements.add(tmpState != null ? new Node(tmpState, parentNode) : null);
+		tmpState = logic.moveRight(actualState);
+		allPossibleMovements.add(tmpState != null ? new Node(tmpState, parentNode) : null);
+		tmpState = logic.moveLeft(actualState);
+		allPossibleMovements.add(tmpState != null ? new Node(tmpState, parentNode) : null);
 
 		return allPossibleMovements;
 	}
