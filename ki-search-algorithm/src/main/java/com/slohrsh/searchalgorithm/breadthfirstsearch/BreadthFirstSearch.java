@@ -1,6 +1,5 @@
 package com.slohrsh.searchalgorithm.breadthfirstsearch;
 
-import java.util.Collection;
 import java.util.List;
 
 import com.slohrsh.interfaces.IExecutable;

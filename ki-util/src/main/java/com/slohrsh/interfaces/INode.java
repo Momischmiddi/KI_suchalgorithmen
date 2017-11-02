@@ -16,6 +16,8 @@ public interface INode
 	
 	public INode getParent();
 	
+	public int getDepth();
+	
 	public String toString();
 	
 	public void printAllSuperiors();

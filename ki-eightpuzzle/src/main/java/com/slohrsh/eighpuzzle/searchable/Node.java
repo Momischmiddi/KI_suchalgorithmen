@@ -10,16 +10,23 @@ public class Node implements INode
 	private int[] state;
 	private int cost;
 	private INode parent;
+	private int depth;
 
 	public Node(int[] state)
 	{
 		this.state = state;
 	}
 
+	public int getDepth()
+	{
+		return depth;
+	}
+
 	public Node(int[] state, INode parentNode)
 	{
 		this.state = state;
 		this.parent = parentNode;
+		this.depth = parentNode.getDepth() + 1;
 	}
 
 	public boolean isGoalReached(INode goal)
@@ -34,7 +41,7 @@ public class Node implements INode
 
 	public void calculateCost(IHeuristic heuristic)
 	{
-		cost = heuristic.calculateCosts(state);
+		cost = heuristic.calculateCosts(state) + depth;
 	}
 
 	public int[] getState()
@@ -61,7 +68,7 @@ public class Node implements INode
 	{
 		return Arrays.toString(state);
 	}
-	
+
 	private void printNode(INode node)
 	{
 		StringBuilder printableState = new StringBuilder();

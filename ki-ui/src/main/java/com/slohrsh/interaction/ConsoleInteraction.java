@@ -3,15 +3,14 @@ package com.slohrsh.interaction;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.BufferOverflowException;
 import java.util.List;
 
 import com.slohrsh.eighpuzzle.searchable.EigthPuzzleSearchable;
 import com.slohrsh.eighpuzzle.searchable.Node;
 import com.slohrsh.eightpuzzle.heuristics.FalsePositionHeuristic;
+import com.slohrsh.eightpuzzle.heuristics.ManhattanDistanceHeuristic;
 import com.slohrsh.interfaces.IExecutable;
 import com.slohrsh.interfaces.INode;
-import com.slohrsh.searchalgorithm.SearchTest;
 import com.slohrsh.searchalgorithm.breadthfirstsearch.BreadthFirstSearch;
 import com.slohrsh.searchalgorithm.depthfirstsearch.DepthFirstSearch;
 import com.slohrsh.searchalgorithm.depthfirstsearch.IterativeDeepening;
@@ -55,7 +54,7 @@ public class ConsoleInteraction
 			search = new HeuristicSearch(EigthPuzzleSearchable.getInstance(), new FalsePositionHeuristic());
 			break;
 		case "hs2":
-			search = new BreadthFirstSearch(EigthPuzzleSearchable.getInstance());
+			search = new HeuristicSearch(EigthPuzzleSearchable.getInstance(), new ManhattanDistanceHeuristic());
 			break;
 		case "q":
 			return;
