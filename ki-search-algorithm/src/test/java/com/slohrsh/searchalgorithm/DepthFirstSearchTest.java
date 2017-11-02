@@ -6,10 +6,12 @@ import org.junit.Test;
 
 import com.slohrsh.eighpuzzle.searchable.EigthPuzzleSearchable;
 import com.slohrsh.eighpuzzle.searchable.Node;
+import com.slohrsh.eightpuzzle.heuristics.ManhattanDistanceHeuristic;
 import com.slohrsh.interfaces.IExecutable;
 import com.slohrsh.interfaces.INode;
 import com.slohrsh.searchalgorithm.depthfirstsearch.DepthFirstSearch;
 import com.slohrsh.searchalgorithm.depthfirstsearch.IterativeDeepening;
+import com.slohrsh.searchalgorithm.heuristicsearch.HeuristicSearch;
 import com.slohrsh.util.ArrayList;
 
 public class DepthFirstSearchTest extends SearchTest
@@ -33,7 +35,7 @@ public class DepthFirstSearchTest extends SearchTest
 	@Test
 	public void IterativeDeepening()
 	{
-		IExecutable search = new IterativeDeepening(EigthPuzzleSearchable.getInstance());
+		IExecutable search = new HeuristicSearch(EigthPuzzleSearchable.getInstance(), new ManhattanDistanceHeuristic());
 		List<INode> startNodeList = new ArrayList<INode>();
 		startNodeList.add(startNode);
 		INode resultNode = search.startSearch(startNodeList, goal);
