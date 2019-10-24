@@ -69,7 +69,7 @@ public class ConsoleInteraction
 			checkResult(resultNode);
 		}catch(StackOverflowError e)
 		{
-			System.out.println("Computer ran out of memory!");
+			System.out.println("RAM ran out of memory!");
 		}
 		
 		return;
